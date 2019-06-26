@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Bian Shengwei's Blog
 subtitle:
-description:
-keywords:
+description: Bian Shengwei的博客，关注云计算、容器虚拟化方面的研究和项目
+keywords: 云计算、容器
 author: Bian Shengwei
 language: zh-CN
-timezone:
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
