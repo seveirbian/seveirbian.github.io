@@ -16,7 +16,7 @@
 <meta property="og:description" content="本周介绍一篇ASPLOS‘19的文章，文章针对容器隔离性不足的问题，提出了基于LibOS的容器隔离解决方案">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/PaperReading.png">
-<meta property="og:updated_time" content="2019-06-27T08:39:27.615Z">
+<meta property="og:updated_time" content="2019-07-06T12:53:40.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文半月读第二期">
 <meta name="twitter:description" content="本周介绍一篇ASPLOS‘19的文章，文章针对容器隔离性不足的问题，提出了基于LibOS的容器隔离解决方案">
@@ -188,7 +188,11 @@
 <h3 id="X-containers作为新范式的思考"><a href="#X-containers作为新范式的思考" class="headerlink" title="X-containers作为新范式的思考"></a>X-containers作为新范式的思考</h3><h3 id="Single-concerned-containers"><a href="#Single-concerned-containers" class="headerlink" title="Single-concerned containers"></a>Single-concerned containers</h3><p>只有Single-concenred容器才能充分发挥Kubernetes提供的自动部署、扩展和运维。因此向single-concerned容器的转变已经在很多云基础设施中出现，例如ECS和Google container engine。但是single-concerned并不等于single-process，因此single-concerned容器仍然需要并行多进程的支持。</p>
 <h3 id="重新思考隔离边界"><a href="#重新思考隔离边界" class="headerlink" title="重新思考隔离边界"></a>重新思考隔离边界</h3><p>现代操作系统为了支持多用户和多进程提供了多种隔离机制：Kernel isolation（保证进程不能危害内核的完整性并且不能获取内核的敏感信息）和Process isolation（保证进程不能轻易地互相访问和危害）。Kernel isolation的代价太大，因为系统调用的handler必须进行各种安全检查。随着内核功能的增加，对应的安全检查就会越来越多，导致代价越来越大。Process isolation的问题在于进程本身并不完全是为了安全隔离而设计的。进程经常被用来做资源的共享、并行并且为了支持这些进程特性，操作系统提供了超越隔离的接口，包括共享内存、共享文件系统、信号、用户组和debugging hook。</p>
 <p>作者重新思考了什么功能属于内核以及安全的边界在哪里的问题，认为exokernel架构（外内核）才是既能够保证最小的内核攻击面同时能够提供高性能的选择。同时认为进程应该被用来管理资源和并行，安全隔离应该从进程模型中去除。因为现在应用的安全隔离很多都是从编程语言角度（强类型）和应用逻辑（基于角色的访问控制、权限和加密）的角度实现的，并不依赖底层的进程模型。</p>
+<div style="text-align: center;">
+
 <p><img src="architecture.png" alt="各种容器架构对比"></p>
+</div>
+
 <p>文章作者提出X-containers架构，在该架构中每个single-concerned容器运行在它自己的LibOS中，称之为X-LibOS。X-LibOS支持多进程，但该进程模型不支持隔离特性，只支持资源管理和并行。容器间隔离通过X-Kernel实现，X-Kernel是一个外内核，保证了极小的内核攻击面同时保证了很小的Trusted Computing Base（TCB）。</p>
 <h3 id="危害模型和设计的权衡（trade-off）"><a href="#危害模型和设计的权衡（trade-off）" class="headerlink" title="危害模型和设计的权衡（trade-off）"></a>危害模型和设计的权衡（trade-off）</h3><p>在X-containers模型中，同一个X-container中的进程是互相信赖的，并且也信赖底层的X-LibOS和X-Kernel。因此在这种架构下，系统面临的最大的威胁都是外部威胁。同时由于X-Containers是基于只提供隔离功能的小内核，因此X-Containers在实际使用中只会有更小的弱点。</p>
 <p>X-Containers模型包含了多个trade-off。为了性能，容器内部的隔离（即进程间隔离）被解除，进程和X-LibOS的隔离被解除。不同容器间的隔离完全由X-Kernel保证。</p>
@@ -212,7 +216,11 @@
 <li><p>Xen拥有成熟的生态系统：Linux保持了对Xen架构的支持，同时Xen拥有许多成熟的技术（在线迁移、容错、checkpoint/restore）。</p>
 </li>
 </ol>
-<h3 id="限制和开放性问题"><a href="#限制和开放性问题" class="headerlink" title="限制和开放性问题"></a>限制和开放性问题</h3><p><img src="architectureprosandcons.png" alt="各种容器架构对比"></p>
+<h3 id="限制和开放性问题"><a href="#限制和开放性问题" class="headerlink" title="限制和开放性问题"></a>限制和开放性问题</h3><div style="text-align: center;">
+
+<p><img src="architectureprosandcons.png" alt="各种容器架构对比"></p>
+</div>
+
 <p>作者制作了一张比较各种架构的图，从图中可以看到X-Containers在内存、启动时间以及软件证书方面存在不足。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="移除内核隔离"><a href="#移除内核隔离" class="headerlink" title="移除内核隔离"></a>移除内核隔离</h3><p>作者修改了Xen半虚拟化架构，使得该架构不再提供客户机内核和用户程序间的隔离。X-LibOS被映射到用户程序的地址空间，X-LibOS和用户程序拥有相同的页表特权集和段选择器。因此对内核的访问不再引入客户机用户态和客户机内核态的环境切换，系统调用也可以以函数调用的方式实现。</p>
 <h3 id="并行多进程支持"><a href="#并行多进程支持" class="headerlink" title="并行多进程支持"></a>并行多进程支持</h3><p>X-Containers架构得益于Xen半虚拟化，天生支持并行多进程。Xen提供半虚拟化的CPU，Linux内核能够利用这层抽象定制自己处理中断，维护页表，刷新TLB的操作。Linux拥有使用虚拟CPU调度进程的完全能力，Xen决定虚拟CPU被如何映射到物理CPU。</p>
@@ -230,19 +238,47 @@
 <li><p>How does the scalability of X-Containers compare to Docker Containers and VMs?</p>
 </li>
 </ul>
-<h3 id="第一个问题"><a href="#第一个问题" class="headerlink" title="第一个问题"></a>第一个问题</h3><p><img src="ABOM.png" alt="对典型应用的系统调用识别和替换情况"></p>
+<h3 id="第一个问题"><a href="#第一个问题" class="headerlink" title="第一个问题"></a>第一个问题</h3><div style="text-align: center;">
+
+<p><img src="ABOM.png" alt="对典型应用的系统调用识别和替换情况"></p>
+</div>
+
 <p>作者对12中典型应用进行了测试，除了MySQL之外，其他的应用的大部分系统调用都能够被正确的识别并被替换成更高性能的函数调用。而MySQL之所以效果不好，是因为它使用了<em>libthread</em>库，该库中的系统调用的实现模式无法被ABOM识别。作者使用了离线的工具，发现效果也能够提升到92.2%。</p>
-<h3 id="第二个问题"><a href="#第二个问题" class="headerlink" title="第二个问题"></a>第二个问题</h3><p><img src="macrobenchmark.png" alt="X-Containers与其他方案的总体比较"></p>
+<h3 id="第二个问题"><a href="#第二个问题" class="headerlink" title="第二个问题"></a>第二个问题</h3><div style="text-align: center;">
+
+<p><img src="macrobenchmark.png" alt="X-Containers与其他方案的总体比较"></p>
+</div>
+
 <p>作者首先比较了X-Containers和其他方案在运行macro benchmark时的性能。可以看到X-Containers只在Apache应用的测试中表现不如Docker，这是因为Apache应用存在很多不同worker进程的环境切换。</p>
+<div style="text-align: center;">
+
 <p><img src="syscall.png" alt="X-Containers与其他方案在系统调用吞吐量的比较"></p>
+</div>
+
 <p>X-Container在系统调用的吞吐量上性能优异。</p>
+<div style="text-align: center;">
+
 <p><img src="others.png" alt="X-Containers与其他方案在其他方面吞吐量的比较"></p>
+</div>
+
 <p>作者还比较了X-Containers与其他方案在micro benchmark上的性能比较。发现X-Containers只在进程创建和环境切换方面性能不佳。</p>
-<h3 id="第三个问题"><a href="#第三个问题" class="headerlink" title="第三个问题"></a>第三个问题</h3><p><img src="compareUnikernel.png" alt="X-Containers与其他unikernel的比较"></p>
+<h3 id="第三个问题"><a href="#第三个问题" class="headerlink" title="第三个问题"></a>第三个问题</h3><div style="text-align: center;">
+
+<p><img src="compareUnikernel.png" alt="X-Containers与其他unikernel的比较"></p>
+</div>
+
 <p>作者比较了X-Containers和其他unikernel的对比，结果X-Containers性能占优。</p>
-<h3 id="第四个问题"><a href="#第四个问题" class="headerlink" title="第四个问题"></a>第四个问题</h3><p><img src="scalability.png" alt="X-Containers与其他方案在扩展性的比较"></p>
+<h3 id="第四个问题"><a href="#第四个问题" class="headerlink" title="第四个问题"></a>第四个问题</h3><div style="text-align: center;">
+
+<p><img src="scalability.png" alt="X-Containers与其他方案在扩展性的比较"></p>
+</div>
+
 <p>作者运行了一个NGINX+PHP容器，可以看到在实例较少的时候，容器的扩展性较好。但是随着实例数量的增加，X-Containers更好。这是因为每个NGINX+PHP容器实例包含4个进程，当有N个容器的时候，Docker平台的kernel需要调度4N个进程，而X-Containers仍然只需要调度N个进程。</p>
-<h3 id="X-Container启动时间和内存占用的测试"><a href="#X-Container启动时间和内存占用的测试" class="headerlink" title="X-Container启动时间和内存占用的测试"></a>X-Container启动时间和内存占用的测试</h3><p><img src="spawntimeandmemory.png" alt="X-Containers与容器在启动时间和内存占用的比较"></p>
+<h3 id="X-Container启动时间和内存占用的测试"><a href="#X-Container启动时间和内存占用的测试" class="headerlink" title="X-Container启动时间和内存占用的测试"></a>X-Container启动时间和内存占用的测试</h3><div style="text-align: center;">
+
+<p><img src="spawntimeandmemory.png" alt="X-Containers与容器在启动时间和内存占用的比较"></p>
+</div>
+
 <h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>针对当前容器隔离性不足的问题，解决方案主要分为两大流派。第一派是使用虚拟机，将容器包进虚拟机中，利用虚拟机的强隔离来加强容器的隔离性；第二派是加强容器本身的隔离性，代表工作是谷歌的gVisor，gVisor使用pTrace截获容器的系统调用，然后经过gVisor自己的处理后，返回给容器，可以看作是一种用户态内核。</p>
 <h2 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h2><p>作者使用通过Xen半虚拟化和库操作系统的结构，构建了X-Containers架构。理论上解决了容器隔离性的问题，但是在启动时间和内存占用上还存在一些不足。作者工作最突出的地方在于使用Linux作为库操作系统，这是之前的工作完全没有想到的。使用Linux作为操作系统可以完美规避应用的兼容性和多进程问题，目前来看，这是一个非常好的解决方案。作者好像也去开公司去了，哈哈哈哈！</p>
 
@@ -362,7 +398,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        4
                     </p>
                 </div>
             </div>
@@ -382,7 +418,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        4
                     </p>
                 </div>
             </div>
@@ -553,7 +589,7 @@
                 <span class="level-item">论文半月读</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li>
             </ul>
@@ -567,7 +603,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ASPLOS-19/" style="font-size: 20px;">ASPLOS'19</a> <a href="/tags/文章翻译/" style="font-size: 10px;">文章翻译</a> <a href="/tags/论文半月读/" style="font-size: 20px;">论文半月读</a>
+        <a href="/tags/ASPLOS-19/" style="font-size: 15px;">ASPLOS'19</a> <a href="/tags/FAST-16/" style="font-size: 10px;">FAST'16</a> <a href="/tags/文章翻译/" style="font-size: 10px;">文章翻译</a> <a href="/tags/论文半月读/" style="font-size: 20px;">论文半月读</a>
     </div>
 </div>
 
@@ -581,6 +617,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/01/论文半月读第三期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第三期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-01T12:00:00.000Z">2019-07-01</time></div>
+                    <a href="/2019/07/01/论文半月读第三期/" class="has-link-black-ter is-size-6">论文半月读第三期</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -652,6 +707,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
                     <span class="level-item">六月 2019</span>
@@ -683,6 +749,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/FAST-16/">
+                        <span class="tag">FAST&#39;16</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/文章翻译/">
                         <span class="tag">文章翻译</span>
                         <span class="tag is-grey">1</span>
@@ -692,7 +765,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/论文半月读/">
                         <span class="tag">论文半月读</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -721,6 +794,25 @@
         
         <article class="media">
             
+            <a href="/2019/07/01/论文半月读第三期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第三期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-01T12:00:00.000Z">2019-07-01</time></div>
+                    <a href="/2019/07/01/论文半月读第三期/" class="has-link-black-ter is-size-6">论文半月读第三期</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/06/27/文章翻译第一期/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/ArticleTranslation.png" alt="文章翻译第一期">
@@ -789,6 +881,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/06/">
                 <span class="level-start">
                     <span class="level-item">六月 2019</span>
@@ -820,6 +923,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/FAST-16/">
+                        <span class="tag">FAST&#39;16</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/文章翻译/">
                         <span class="tag">文章翻译</span>
                         <span class="tag is-grey">1</span>
@@ -829,7 +939,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/论文半月读/">
                         <span class="tag">论文半月读</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
