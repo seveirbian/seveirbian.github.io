@@ -2,24 +2,25 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: 文章翻译 - Bian Shengwei&#39;s Blog</title>
+<title>论文半月读第五期 - Bian Shengwei&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Bian Shengwei的博客，关注云计算、容器虚拟化方面的研究和项目">
-<meta name="keywords" content="云计算、容器">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bian Shengwei&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/文章翻译/index.html">
+    <meta name="description" content="这一期我们继续关注容器方向。这篇文章发表在HotCloud‘19，关注如何构建更加高效的Docker容器镜像来减少镜像仓库的存储压力。">
+<meta name="keywords" content="论文半月读,HotCloud&#39;19">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文半月读第五期">
+<meta property="og:url" content="http://yoursite.com/2019/08/01/论文半月读第五期/index.html">
 <meta property="og:site_name" content="Bian Shengwei&#39;s Blog">
-<meta property="og:description" content="Bian Shengwei的博客，关注云计算、容器虚拟化方面的研究和项目">
+<meta property="og:description" content="这一期我们继续关注容器方向。这篇文章发表在HotCloud‘19，关注如何构建更加高效的Docker容器镜像来减少镜像仓库的存储压力。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:image" content="http://yoursite.com/images/PaperReading.png">
+<meta property="og:updated_time" content="2019-08-07T08:18:55.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bian Shengwei&#39;s Blog">
-<meta name="twitter:description" content="Bian Shengwei的博客，关注云计算、容器虚拟化方面的研究和项目">
-<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:title" content="论文半月读第五期">
+<meta name="twitter:description" content="这一期我们继续关注容器方向。这篇文章发表在HotCloud‘19，关注如何构建更加高效的Docker容器镜像来减少镜像仓库的存储压力。">
+<meta name="twitter:image" content="http://yoursite.com/images/PaperReading.png">
 <meta name="twitter:creator" content="@seveir roy">
 <meta name="twitter:site" content="https://twitter.com/SeveirR">
 
@@ -104,7 +105,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="Bian Shengwei&#39;s Blog" height="28">
+                <img src="/images/logo.png" alt="论文半月读第五期" height="28">
             
             </a>
         </div>
@@ -127,6 +128,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -141,39 +146,28 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">文章翻译</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/2019/06/27/文章翻译第一期/" class="image is-7by1">
-            <img class="thumbnail" src="/images/ArticleTranslation.png" alt="文章翻译第一期">
-        </a>
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第五期">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-27T08:08:20.000Z">2019-06-27</time>
+                <time class="level-item has-text-grey" datetime="2019-08-01T12:00:00.000Z">2019-08-01</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/文章翻译/">文章翻译</a>
+                <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1572 个字)
+                    10 分钟 读完 (大约 1483 个字)
                 </span>
                 
                 
@@ -182,22 +176,64 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/06/27/文章翻译第一期/">文章翻译第一期</a>
+                论文半月读第五期
             
         </h1>
         <div class="content">
-            <p>本期文章翻译选择了<a href="https://thenewstack.io/author/janakiram/" target="_blank" rel="noopener">Janakiram MSV</a>发表在THENEWSTACK上的一篇博客，主要针对当前很火的云原生概念做了一些介绍。</p>
+            <p>这一期我们继续关注容器方向。这篇文章发表在HotCloud‘19，关注如何构建更加高效的Docker容器镜像来减少镜像仓库的存储压力。</p>
+<a id="more"></a>
+
+<h2 id="文章来源"><a href="#文章来源" class="headerlink" title="文章来源"></a>文章来源</h2><p>Carving Perfect Layers out of Docker Images (HotCloud’19)</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>热门的容器框架（例如docker）改变了开发者打包、共享、部署应用的方式。应用容器被打包成容器镜像，通过中心化的镜像仓库实现版本迭代、存储和共享。当前容器镜像采用层级结构（即每个镜像由多个镜像层组成），相同的层在仓库中只存储一次，以此来减少镜像仓库的存储压力。但是，在实际使用中，这种方法是低效的。作者认为Docker镜像层应该在仓库中重新构建，来提高共享效率，同时减少存储使用。作者首先例举了实现重新构建镜像层的困难，并提出了一个数学模型，最后的测试结果显示能够提升2.3倍的存储和网络效率。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>容器镜像：容器镜像包含构成容器根目录的所有文件和目录。镜像由一系列的层构成，每个层包含根目录的部分文件和目录。Docker使用overlay技术（例如overlay2和aufs）将所有层挂载，呈现出完整的根目录视图。</p>
+<p>镜像仓库：镜像及其镜像层存储在无论公有的还是私有的镜像仓库中。镜像层以压缩后tar包的形式发送给用户，每个镜像层都有一个基于内容的ID，这就使得镜像仓库可以以镜像层为粒度进行去重。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>容器化应用的流行使得镜像仓库需要存储越来越多的镜像。以dockerhub为例，截止2019年3月，docekrhub已经拥有了超过2000000个公共的repository。前10000个最流行的镜像就需要占据超过5.3TB的空间。简单假设每个repository中只有一个镜像的话，那么dockerhub也需要占用1PB的存储空间！更何况，实际上每个repository拥有远超过1个的镜像。</p>
+<p>为了解决这个问题，Docker采取了去重技术。首先，每个镜像被拆分为多层，允许一个层可以被多个镜像使用。其次，每层镜像都会被压缩。在对前10000个最流行的镜像使用上述方法后，可以去重率可以达到3.54。但是在实际场景下，1PB/3.54=290TB，仍然需要占用大量存储空间。</p>
+<p>作者的发现：基于层的去重效果并不理想，前10000个流行的镜像，共67047个镜像层中仍然包含80%的冗余文件！</p>
+<h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>作者认为，减少存储使用的最有效的方法是需要一个聪明的仓库，这个仓库可以重新组织镜像层（在保持镜像层结构的同时减少存储使用）。作者归结了他所认为的挑战：</p>
+<ol>
+<li><p>如何重新组织镜像层来减少冗余？</p>
+<p> 首先，只能向镜像中添加文件而不能删除文件；其次，每个镜像的层数不应该增加太多；</p>
+</li>
+<li><p>在大规模场景下，如何更加高效地重新组织镜像层？</p>
+<p> 镜像仓库通常包含大量的镜像和镜像层，因此在这种规模下重新构建镜像层需要一种高效的方法（比如放宽限制条件、使用启发式的方法或者在部分镜像子集上实现部分重构）；</p>
+</li>
+<li><p>对Docker客户端的影响？</p>
+<p> 在镜像仓库中对镜像进行重构会严重影响到docker客户端，如何处理这个问题是一个开放式的问题。当前还不清楚是应该对客户端透明还是显式地让客户端参与这个过程。</p>
+</li>
+<li><p>何时应该执行重新组织镜像层？</p>
+<p> 随着镜像的增加，之前的重构会变成次优解。因此，一些问题会浮现出来：多久重构应该执行一次？计算过程应该是线上还是线下？优化过程是否要基于上一次的结果？</p>
+</li>
+<li><p>镜像能够忍受的影响？</p>
+<p> 对镜像的重构会改变镜像层的顺序，可能导致新的镜像不完全等于原始镜像。对镜像的重构需要保证原本镜像中的文件不能被改变和删除。</p>
+</li>
+</ol>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>作者对镜像重构进行了抽象，构建了一套镜像重构的公式，并且选择了一种简单的贪心算法对这个公式进行了测试。作者主要提出了对镜像重构的想法以及对镜像重构的抽象，解决方案只使用了简单的解决方案。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><div style="text-align: center;">
+
+<p><img src="evaluation.png" alt="测试结果"></p>
+</div>
+
+<h2 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h2><p>作者针对当前镜像仓库占用原来越多存储，但是其中包含大量冗余数据的问题，提出了重构镜像的想法。作者认为我们可以对镜像仓库中的镜像中的文件镜像重新的排布，以此来达到减少存储占用的目的。同时作者给出了自己的抽象模型并且给出了一种简单的解决方案，工作很完整！</p>
+<h2 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h2><p><a href="https://www.usenix.org/system/files/hotcloud19-paper-skourtis_0.pdf" target="_blank" rel="noopener">查看原文</a></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/27/文章翻译第一期/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/HotCloud-19/">HotCloud'19</a>, <a class="has-link-grey -link" href="/tags/论文半月读/">论文半月读</a>
                 </div>
             </div>
         </div>
         
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5cfcf6a14351e9001264fdc5&amp;product=inline-share-buttons" async="async"></script>
+
         
     </div>
 </div>
@@ -206,9 +242,45 @@
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/16/论文半月读第四期/">
+                <span class="level-item">论文半月读第四期</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/08/01/论文半月读第五期/';
+        this.page.identifier = '2019/08/01/论文半月读第五期/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'bianshengweis-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
 </div>
                 
 
@@ -311,6 +383,53 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#文章来源">
+        <span class="has-mr-6">1</span>
+        <span>文章来源</span>
+        </a></li><li>
+        <a class="is-flex" href="#简介">
+        <span class="has-mr-6">2</span>
+        <span>简介</span>
+        </a></li><li>
+        <a class="is-flex" href="#背景">
+        <span class="has-mr-6">3</span>
+        <span>背景</span>
+        </a></li><li>
+        <a class="is-flex" href="#问题">
+        <span class="has-mr-6">4</span>
+        <span>问题</span>
+        </a></li><li>
+        <a class="is-flex" href="#挑战">
+        <span class="has-mr-6">5</span>
+        <span>挑战</span>
+        </a></li><li>
+        <a class="is-flex" href="#解决方案">
+        <span class="has-mr-6">6</span>
+        <span>解决方案</span>
+        </a></li><li>
+        <a class="is-flex" href="#测试">
+        <span class="has-mr-6">7</span>
+        <span>测试</span>
+        </a></li><li>
+        <a class="is-flex" href="#我的总结">
+        <span class="has-mr-6">8</span>
+        <span>我的总结</span>
+        </a></li><li>
+        <a class="is-flex" href="#原文链接">
+        <span class="has-mr-6">9</span>
+        <span>原文链接</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -797,7 +916,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="Bian Shengwei&#39;s Blog" height="28">
+                    <img src="/images/logo.png" alt="论文半月读第五期" height="28">
                 
                 </a>
                 <p class="is-size-7">
