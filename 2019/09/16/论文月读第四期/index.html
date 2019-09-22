@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>论文半月读第一期 - Bian Shengwei&#39;s Blog</title>
+<title>论文月读第四期 - Bian Shengwei&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="本周介绍一篇ASPLOS‘19的文章，文章提出了一套用于测试微服务的套件">
-<meta name="keywords" content="论文半月读,ASPLOS&#39;19">
+    <meta name="description" content="这一期我们继续关注容器方向，同时也是我的师兄的一篇文章。这篇文章发表在MSST‘19，关注加速容器构建（build）。">
+<meta name="keywords" content="MSST&#39;19,论文月读">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文半月读第一期">
-<meta property="og:url" content="http://yoursite.com/2019/06/01/论文半月读第一期/index.html">
+<meta property="og:title" content="论文月读第四期">
+<meta property="og:url" content="http://yoursite.com/2019/09/16/论文月读第四期/index.html">
 <meta property="og:site_name" content="Bian Shengwei&#39;s Blog">
-<meta property="og:description" content="本周介绍一篇ASPLOS‘19的文章，文章提出了一套用于测试微服务的套件">
+<meta property="og:description" content="这一期我们继续关注容器方向，同时也是我的师兄的一篇文章。这篇文章发表在MSST‘19，关注加速容器构建（build）。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/PaperReading.png">
-<meta property="og:updated_time" content="2019-06-27T08:39:36.260Z">
+<meta property="og:updated_time" content="2019-09-22T12:20:30.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文半月读第一期">
-<meta name="twitter:description" content="本周介绍一篇ASPLOS‘19的文章，文章提出了一套用于测试微服务的套件">
+<meta name="twitter:title" content="论文月读第四期">
+<meta name="twitter:description" content="这一期我们继续关注容器方向，同时也是我的师兄的一篇文章。这篇文章发表在MSST‘19，关注加速容器构建（build）。">
 <meta name="twitter:image" content="http://yoursite.com/images/PaperReading.png">
 <meta name="twitter:creator" content="@seveir roy">
 <meta name="twitter:site" content="https://twitter.com/SeveirR">
@@ -105,7 +105,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="论文半月读第一期" height="28">
+                <img src="/images/logo.png" alt="论文月读第四期" height="28">
             
             </a>
         </div>
@@ -149,7 +149,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第一期">
+            <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第四期">
         </span>
     </div>
     
@@ -157,17 +157,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-01T12:00:00.000Z">2019-06-01</time>
+                <time class="level-item has-text-grey" datetime="2019-09-16T12:00:00.000Z">2019-09-16</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
+                <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1340 个字)
+                    7 分钟 读完 (大约 1043 个字)
                 </span>
                 
                 
@@ -176,93 +176,47 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                论文半月读第一期
+                论文月读第四期
             
         </h1>
         <div class="content">
-            <p>本周介绍一篇ASPLOS‘19的文章，文章提出了一套用于测试微服务的套件</p>
+            <p>这一期我们继续关注容器方向，同时也是我的师兄的一篇文章。这篇文章发表在MSST‘19，关注加速容器构建（build）。</p>
 <a id="more"></a>
 
-<h2 id="文章来源"><a href="#文章来源" class="headerlink" title="文章来源"></a>文章来源</h2><p>An Open-Source Benchmark Suite for Microservices and Their Hardware-Software Implications for Cloud &amp; Edge Systems (ASPLOS’19)</p>
-<p>这是ASPLOS‘19上，一篇来自康内尔大学的文章，作者居然有24个之多。</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在云中，宏应用正在向微服务转变。当前缺少对云环境下微服务的深入认识。文章实现了一个包含了五种不同应用的测试套件，其中使用了多种编程语言（C/C++、Java、Javascript、node.js、Python、html、Ruby、Go和Scala），以及REST和RPC两种服务接口。文章使用测试套件之后，从硬件、操作系统、网络栈、集群管理和应用框架、以及tail latency等方面阐释了测试结果和启示。</p>
-<h2 id="背景和动机"><a href="#背景和动机" class="headerlink" title="背景和动机"></a>背景和动机</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>当前云服务的一个趋势：宏应用向微服务转变。</p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>当前缺少在云环境下对微服务更深入的探索和认识，急需一个微服务测试套件。</p>
-<h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p>已有的测试套件</p>
+<h2 id="文章来源"><a href="#文章来源" class="headerlink" title="文章来源"></a>文章来源</h2><p>FastBuild: Accelerating Docker Image Building for Efficient Development and Deployment of Container (MSST’19)</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>相比容器的极快的启动速度，容器的构建速度太慢。师兄提出了细粒度的数据共享方法，以此提高容器的构建速度。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>当前部署docker容器的方法有两种：直接拉取镜像和从Dockerfile构建。其中从Dockerfile构建是一种很流行的方法，因为它能够保证容器镜像内容是最新版本。</p>
+<p>Dockerfile是一个文本文件，主要包含了两类命令：指定基础镜像，以及每一条需要在容器中运行的指令（下称容器命令）。从Dockerfile构建容器的流程为：1. 首先根据指定基础镜像命令，下载对应的基础镜像；2. 从基础镜像启动一个容器，执行下一条容器命令；3. 将执行完该条命令的容器提交为新的镜像层；4. 反复迭代执行2和3环节，知道所有的容器命令被执行完成。</p>
+<p>容器命令的主要作用就是从互联网获取相应的数据，也就是说容器的构建过程就是一个数据下载的过程。因此，构建时间与数据下载量息息相关。为了减少容器的构建时间，Docker官方提供了层级的缓存共享。即：当构建一个新镜像的容器命令时，判断当前是否存在一个镜像层，它的前一个镜像层与当前待执行容器命令的镜像层相同，且容器命令也相同，如果存在，就可以直接复用该层镜像，而不再从远程下载数据。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当前层级共享的粒度太大不能很好的实现数据共享的目标。同时我们经过测试发现，使用文件级的共享策略，能够减少80-90%的数据下载。</p>
+<h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>Docker引擎在镜像构建过程中对数据的下载是没有感知的。如何能够感知到镜像构建过程中需要的数据是一个很大的挑战。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>提出容器快速构建系统FastBuild。</p>
 <ol>
-<li><p>Cloud applications</p>
-<ul>
-<li>不足：[1, 2, 3, 4, 5]主要关注单层或少数层（大多两到三层）应用，这些浅层应用和现在云中的应用的深层架构已经完全偏离了。典型的web搜索应用就是一个深层的工作负载</li>
-</ul>
+<li><p>截获容器对数据的下载：在开始构建镜像时，FastBuild获取容器所在的网络namespace，并在该namespace下创建一个子进程。子进程用来截获容器对网络数据的请求，并将请求转发到FastBuild。FastBuild判断是否使用本地cache还是从网络获取数据。</p>
 </li>
-<li><p>Microservices</p>
-<ul>
-<li>不足：[6, 7, 8, 9]没有关注拥有数十个微服务的大规模应用，这也是文章主要关注的地方</li>
-</ul>
+<li><p>接管容器命令的执行：Docker在执行容器命令时，会在执行每条指令前创建新容器。但是创建新容器这个操作是一个很费时的操作，占据11.6%的构建时间。因此，我们会在创建第一个容器之后接管容器的构建，在一个容器中执行完所有的指令。同时我们也保证在没执行一条命令后，构建一层镜像层，保证了与标准容器镜像的兼容。</p>
+</li>
+<li><p>快速获取基础镜像：在Docker构建过程中，基础镜像是直接下载的。我们可以通过获取基础镜像的Dockerfile来加速基础镜像的构建，最终加速我们整个构建流程。</p>
 </li>
 </ol>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h3><ol>
-<li><p>代表性（representativeness）：采用流行的开源应用（包括nginx、memcached、mongoDB、rabbitMQ、Mysql、Apache http server、 ardrone-autonomy和Weave的微服务）作为组件，通讯采用Apache Thrift、gRPC和http</p>
-</li>
-<li><p>端到端的操作（end-to-end operation）：实现了完整的服务（从客户发出请求到客户收到反馈）</p>
-</li>
-<li><p>异构性（heterogeneity）：采用多种编程语言，包括C/C++、Java、Javascript、node.js、Python、html、Ruby、Go和Scala</p>
-</li>
-<li><p>模块化（modularity）：蹲循康威定律（软件架构是公司组织架构的体现）</p>
-</li>
-<li><p>可重配置性（reconfigurability）：组件的更新十分容易</p>
-</li>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><div style="text-align: center;">
+
+<p><img src="buildtime.png" alt="构建时间的加速"></p>
+</div>
+
+<ol>
+<li>加速构建时间为3.2倍。</li>
 </ol>
-<h3 id="套件内容"><a href="#套件内容" class="headerlink" title="套件内容"></a>套件内容</h3><ol>
-<li><p>社交网络</p>
-</li>
-<li><p>媒体服务</p>
-</li>
-<li><p>电子商务服务</p>
-</li>
-<li><p>银行系统</p>
-</li>
-<li><p>云边协同</p>
-</li>
+<div style="text-align: center;">
+
+<p><img src="datasize.png" alt="减少数据下载量"></p>
+</div>
+
+<ol start="2">
+<li>减少79.5%的数据下载。</li>
 </ol>
-<h2 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h2><ol>
-<li><p>硬件架构</p>
-<ul>
-<li>尽管每个微服务的计算量都很小，但是每个独立服务的延迟要求需要更加严格，这就需要很高的单线程性能的可预测性</li>
-</ul>
-</li>
-<li><p>操作系统和网络</p>
-<ul>
-<li>与宏服务不同，微服务会在发送和处理网络请求（RPC和REST）上花费更多的时间，因此在tail latencty上的一点点改进都会提升整体的性能</li>
-</ul>
-</li>
-<li><p>集群管理</p>
-<ul>
-<li><p>微服务使得集群的管理更加复杂。尽管集群管理者可以对每个微服务进行扩展（scale out），但是微服务间的依赖会导致后续的压力和层叠式的QoS问题，使得系统性能不可预测</p>
-</li>
-<li><p>作者总结：1. 集群管理者在分配资源的时候需要为依赖对end-to-end性能的影响负责（但是没有提出如何负责？）；2. 尽管采用了云提供商常用的自动扩展方法，一旦微服务系统遭受QoS问题，微服务系统比宏服务系统更久的时间恢复</p>
-</li>
-</ul>
-</li>
-<li><p>应用和编程框架</p>
-<ul>
-<li>作者测试了微服务在亚马逊EC2和Lambda中的运行结果，总结：微服务在无状态的serverless系统中也要保持无状态，同时应该使用内存原语在独立函数间传递消息</li>
-</ul>
-</li>
-<li><p>大规模场景下的尾延迟</p>
-<ul>
-<li>大规模场景下微服务的尾延迟比宏服务更加明显，因此一个没有配置好的微服务或者慢的服务器都会严重影响整个系统的end-to-end性能</li>
-</ul>
-</li>
-</ol>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>该测试套件将会以GPL证书开源在<a href="http://microservices.ece.cornell.edu" target="_blank" rel="noopener">这里</a>。</p>
-<h2 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h2><p>文章主要提供了一个多层、多语言、具有代表性的微服务测试套件，从硬件架构、操作系统、集群管理、应用和编程框架以及大规模场景下的尾延迟都做了测试，验证了某些云应用的结论并得出了一些独特的见解。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Clearing the Clouds: A Study of Emerging Scale-out Workloads on Modern Hardware (<strong><em>ASPLOS’12</em></strong>)
-[2] Sirius: An Open End-to-End Voice and Vision Personal Assistant and Its Implications for Future Warehouse Scale Computers (<strong><em>ASPLOS’15</em></strong>)
-[3] TailBench: A Benchmark Suite and Evaluation Methodology for Latency-Critical Applications (IISWC’16)<br>[4] BigDataBench: A big data benchmark suite from internet services (<strong><em>HPCA’14</em></strong>)
-[5] Microarchitectural Implications of Event-driven Server-side Web Applications (<strong><em>MICRO’15</em></strong>)
-[6] ppbench - A Visualizing Network Benchmark for Microservices (CLOSER’16)<br>[7] uSuite: A Bench- mark Suite for Microservices (IISWC’18)<br>[8] Workload characterization for microservices (IISWC’16)<br>[9] Benchmarking Microservice Systems for Soft- ware Engineering Research (<strong><em>ICSE’18</em></strong>)</p>
-<p><strong><em>粗斜体</em></strong>表示A类期刊或会议<br><strong>粗体</strong>表示B类期刊或会议<br><em>斜体</em>表示C类期刊或会议<br>普通字体表示非A、B、C期刊或会议</p>
+<h2 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h2><p>这边文章是对Docker容器构建过程的优化。师兄通过细粒度的数据共享，加速容器的构建。</p>
+<h2 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h2><p><a href="http://storageconference.us/2019/Research/FastBuild.pdf" target="_blank" rel="noopener">查看原文</a></p>
 
         </div>
         
@@ -270,7 +224,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/ASPLOS-19/">ASPLOS'19</a>, <a class="has-link-grey -link" href="/tags/论文半月读/">论文半月读</a>
+                    <a class="has-link-grey -link" href="/tags/MSST-19/">MSST'19</a>, <a class="has-link-grey -link" href="/tags/论文月读/">论文月读</a>
                 </div>
             </div>
         </div>
@@ -293,12 +247,19 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/16/论文半月读第二期/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/16/论文月读第五期/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">论文半月读第二期</span>
+                <span class="level-item">论文月读第五期</span>
             </a>
         </div>
         
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/16/论文月读第三期/">
+                <span class="level-item">论文月读第三期</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
         
     </div>
 </div>
@@ -311,8 +272,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2019/06/01/论文半月读第一期/';
-        this.page.identifier = '2019/06/01/论文半月读第一期/';
+        this.page.url = 'http://yoursite.com/2019/09/16/论文月读第四期/';
+        this.page.identifier = '2019/09/16/论文月读第四期/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -373,7 +334,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        7
+                        8
                     </p>
                 </div>
             </div>
@@ -445,49 +406,33 @@
         <span class="has-mr-6">2</span>
         <span>简介</span>
         </a></li><li>
-        <a class="is-flex" href="#背景和动机">
-        <span class="has-mr-6">3</span>
-        <span>背景和动机</span>
-        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#背景">
-        <span class="has-mr-6">3.1</span>
+        <span class="has-mr-6">3</span>
         <span>背景</span>
         </a></li><li>
         <a class="is-flex" href="#问题">
-        <span class="has-mr-6">3.2</span>
+        <span class="has-mr-6">4</span>
         <span>问题</span>
         </a></li><li>
-        <a class="is-flex" href="#相关工作">
-        <span class="has-mr-6">3.3</span>
-        <span>相关工作</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#解决方案">
-        <span class="has-mr-6">4</span>
-        <span>解决方案</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#设计原则">
-        <span class="has-mr-6">4.1</span>
-        <span>设计原则</span>
-        </a></li><li>
-        <a class="is-flex" href="#套件内容">
-        <span class="has-mr-6">4.2</span>
-        <span>套件内容</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#启示">
+        <a class="is-flex" href="#挑战">
         <span class="has-mr-6">5</span>
-        <span>启示</span>
+        <span>挑战</span>
         </a></li><li>
-        <a class="is-flex" href="#其他">
+        <a class="is-flex" href="#解决方案">
         <span class="has-mr-6">6</span>
-        <span>其他</span>
+        <span>解决方案</span>
+        </a></li><li>
+        <a class="is-flex" href="#测试">
+        <span class="has-mr-6">7</span>
+        <span>测试</span>
         </a></li><li>
         <a class="is-flex" href="#我的总结">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">8</span>
         <span>我的总结</span>
         </a></li><li>
-        <a class="is-flex" href="#参考文献">
-        <span class="has-mr-6">8</span>
-        <span>参考文献</span>
+        <a class="is-flex" href="#原文链接">
+        <span class="has-mr-6">9</span>
+        <span>原文链接</span>
         </a></li></ul>
         </div>
     </div>
@@ -515,9 +460,9 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/论文半月读/">
+        <a class="level is-marginless" href="/categories/论文月读/">
             <span class="level-start">
-                <span class="level-item">论文半月读</span>
+                <span class="level-item">论文月读</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">6</span>
@@ -534,7 +479,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ASPLOS-19/" style="font-size: 15px;">ASPLOS'19</a> <a href="/tags/FAST-16/" style="font-size: 10px;">FAST'16</a> <a href="/tags/HotCloud-19/" style="font-size: 10px;">HotCloud'19</a> <a href="/tags/IPDPS-17/" style="font-size: 10px;">IPDPS'17</a> <a href="/tags/MSST-19/" style="font-size: 10px;">MSST'19</a> <a href="/tags/文章翻译/" style="font-size: 10px;">文章翻译</a> <a href="/tags/论文半月读/" style="font-size: 20px;">论文半月读</a>
+        <a href="/tags/ASPLOS-19/" style="font-size: 15px;">ASPLOS'19</a> <a href="/tags/FAST-16/" style="font-size: 10px;">FAST'16</a> <a href="/tags/HotCloud-19/" style="font-size: 10px;">HotCloud'19</a> <a href="/tags/IPDPS-17/" style="font-size: 10px;">IPDPS'17</a> <a href="/tags/MSST-19/" style="font-size: 10px;">MSST'19</a> <a href="/tags/文章翻译/" style="font-size: 10px;">文章翻译</a> <a href="/tags/论文月读/" style="font-size: 20px;">论文月读</a>
     </div>
 </div>
 
@@ -551,94 +496,94 @@
         
         <article class="media">
             
-            <a href="/2019/08/16/论文半月读第六期/" class="media-left">
+            <a href="/2019/12/16/论文月读第七期/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第六期">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="论文月读第七期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T12:00:00.000Z">2019-12-16</time></div>
+                    <a href="/2019/12/16/论文月读第七期/" class="has-link-black-ter is-size-6">论文月读第七期</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/16/论文月读第六期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第六期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-16T12:00:00.000Z">2019-11-16</time></div>
+                    <a href="/2019/11/16/论文月读第六期/" class="has-link-black-ter is-size-6">论文月读第六期</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/16/论文月读第五期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第五期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T12:00:00.000Z">2019-10-16</time></div>
+                    <a href="/2019/10/16/论文月读第五期/" class="has-link-black-ter is-size-6">论文月读第五期</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/16/论文月读第四期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第四期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-16T12:00:00.000Z">2019-09-16</time></div>
+                    <a href="/2019/09/16/论文月读第四期/" class="has-link-black-ter is-size-6">论文月读第四期</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/16/论文月读第三期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第三期">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-16T12:00:00.000Z">2019-08-16</time></div>
-                    <a href="/2019/08/16/论文半月读第六期/" class="has-link-black-ter is-size-6">论文半月读第六期</a>
+                    <a href="/2019/08/16/论文月读第三期/" class="has-link-black-ter is-size-6">论文月读第三期</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/01/论文半月读第五期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第五期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-01T12:00:00.000Z">2019-08-01</time></div>
-                    <a href="/2019/08/01/论文半月读第五期/" class="has-link-black-ter is-size-6">论文半月读第五期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/16/论文半月读第四期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第四期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-16T12:00:00.000Z">2019-07-16</time></div>
-                    <a href="/2019/07/16/论文半月读第四期/" class="has-link-black-ter is-size-6">论文半月读第四期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/01/论文半月读第三期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第三期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-01T12:00:00.000Z">2019-07-01</time></div>
-                    <a href="/2019/07/01/论文半月读第三期/" class="has-link-black-ter is-size-6">论文半月读第三期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/27/文章翻译第一期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/ArticleTranslation.png" alt="文章翻译第一期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-27T08:08:20.000Z">2019-06-27</time></div>
-                    <a href="/2019/06/27/文章翻译第一期/" class="has-link-black-ter is-size-6">文章翻译第一期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/文章翻译/">文章翻译</a>
+                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
                     </p>
                 </div>
             </div>
@@ -657,12 +602,56 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/08/">
                 <span class="level-start">
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -673,7 +662,7 @@
                     <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -684,7 +673,7 @@
                     <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -745,8 +734,8 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/论文半月读/">
-                        <span class="tag">论文半月读</span>
+                    <a class="tags has-addons" href="/tags/论文月读/">
+                        <span class="tag">论文月读</span>
                         <span class="tag is-grey">6</span>
                     </a>
                 </div>
@@ -776,94 +765,94 @@
         
         <article class="media">
             
-            <a href="/2019/08/16/论文半月读第六期/" class="media-left">
+            <a href="/2019/12/16/论文月读第七期/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第六期">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="论文月读第七期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T12:00:00.000Z">2019-12-16</time></div>
+                    <a href="/2019/12/16/论文月读第七期/" class="has-link-black-ter is-size-6">论文月读第七期</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/16/论文月读第六期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第六期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-16T12:00:00.000Z">2019-11-16</time></div>
+                    <a href="/2019/11/16/论文月读第六期/" class="has-link-black-ter is-size-6">论文月读第六期</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/16/论文月读第五期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第五期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T12:00:00.000Z">2019-10-16</time></div>
+                    <a href="/2019/10/16/论文月读第五期/" class="has-link-black-ter is-size-6">论文月读第五期</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/16/论文月读第四期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第四期">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-16T12:00:00.000Z">2019-09-16</time></div>
+                    <a href="/2019/09/16/论文月读第四期/" class="has-link-black-ter is-size-6">论文月读第四期</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/16/论文月读第三期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第三期">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-16T12:00:00.000Z">2019-08-16</time></div>
-                    <a href="/2019/08/16/论文半月读第六期/" class="has-link-black-ter is-size-6">论文半月读第六期</a>
+                    <a href="/2019/08/16/论文月读第三期/" class="has-link-black-ter is-size-6">论文月读第三期</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/01/论文半月读第五期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第五期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-01T12:00:00.000Z">2019-08-01</time></div>
-                    <a href="/2019/08/01/论文半月读第五期/" class="has-link-black-ter is-size-6">论文半月读第五期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/16/论文半月读第四期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第四期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-16T12:00:00.000Z">2019-07-16</time></div>
-                    <a href="/2019/07/16/论文半月读第四期/" class="has-link-black-ter is-size-6">论文半月读第四期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/01/论文半月读第三期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文半月读第三期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-01T12:00:00.000Z">2019-07-01</time></div>
-                    <a href="/2019/07/01/论文半月读第三期/" class="has-link-black-ter is-size-6">论文半月读第三期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文半月读/">论文半月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/27/文章翻译第一期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/ArticleTranslation.png" alt="文章翻译第一期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-27T08:08:20.000Z">2019-06-27</time></div>
-                    <a href="/2019/06/27/文章翻译第一期/" class="has-link-black-ter is-size-6">文章翻译第一期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/文章翻译/">文章翻译</a>
+                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
                     </p>
                 </div>
             </div>
@@ -882,12 +871,56 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/08/">
                 <span class="level-start">
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -898,7 +931,7 @@
                     <span class="level-item">七月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -909,7 +942,7 @@
                     <span class="level-item">六月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -970,8 +1003,8 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/论文半月读/">
-                        <span class="tag">论文半月读</span>
+                    <a class="tags has-addons" href="/tags/论文月读/">
+                        <span class="tag">论文月读</span>
                         <span class="tag is-grey">6</span>
                     </a>
                 </div>
@@ -993,7 +1026,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="论文半月读第一期" height="28">
+                    <img src="/images/logo.png" alt="论文月读第四期" height="28">
                 
                 </a>
                 <p class="is-size-7">
