@@ -2,24 +2,25 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: FAST&#39;16 - Bian Shengwei&#39;s Blog</title>
+<title>论文月读第七期 - Bian Shengwei&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Bian Shengwei的博客，关注云计算、容器虚拟化方面的研究和项目">
-<meta name="keywords" content="云计算、容器">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bian Shengwei&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/FAST-16/index.html">
+    <meta name="description" content="这一期我们关注SoCC‘19上的一篇关注容器I/O性能的文章。这篇文章旨在为Docker容器提供一个既能够提供高性能也保障高效缓存存储驱动：HP-Mapper">
+<meta name="keywords" content="论文月读,SoCC&#39;19">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文月读第七期">
+<meta property="og:url" content="http://yoursite.com/2019/12/16/论文月读第七期/index.html">
 <meta property="og:site_name" content="Bian Shengwei&#39;s Blog">
-<meta property="og:description" content="Bian Shengwei的博客，关注云计算、容器虚拟化方面的研究和项目">
+<meta property="og:description" content="这一期我们关注SoCC‘19上的一篇关注容器I/O性能的文章。这篇文章旨在为Docker容器提供一个既能够提供高性能也保障高效缓存存储驱动：HP-Mapper">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:image" content="http://yoursite.com/images/PaperReading.png">
+<meta property="og:updated_time" content="2019-12-09T09:33:10.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bian Shengwei&#39;s Blog">
-<meta name="twitter:description" content="Bian Shengwei的博客，关注云计算、容器虚拟化方面的研究和项目">
-<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:title" content="论文月读第七期">
+<meta name="twitter:description" content="这一期我们关注SoCC‘19上的一篇关注容器I/O性能的文章。这篇文章旨在为Docker容器提供一个既能够提供高性能也保障高效缓存存储驱动：HP-Mapper">
+<meta name="twitter:image" content="http://yoursite.com/images/PaperReading.png">
 <meta name="twitter:creator" content="@seveir roy">
 <meta name="twitter:site" content="https://twitter.com/SeveirR">
 
@@ -104,7 +105,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="Bian Shengwei&#39;s Blog" height="28">
+                <img src="/images/logo.png" alt="论文月读第七期" height="28">
             
             </a>
         </div>
@@ -127,6 +128,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -141,29 +146,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">FAST&#39;16</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/2019/08/16/论文月读第三期/" class="image is-7by1">
-            <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第三期">
-        </a>
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第七期">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-16T12:00:00.000Z">2019-08-16</time>
+                <time class="level-item has-text-grey" datetime="2019-12-16T12:00:00.000Z">2019-12-16</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
@@ -173,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    13 分钟 读完 (大约 1945 个字)
+                    10 分钟 读完 (大约 1458 个字)
                 </span>
                 
                 
@@ -182,22 +176,92 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/08/16/论文月读第三期/">论文月读第三期</a>
+                论文月读第七期
             
         </h1>
         <div class="content">
-            <p>最近科研任务紧张，我们就阅读一下和我的科研方向相关的文章。介绍一篇FAST’16的文章，文章针对Docker容器第一次启动慢的问题，提出了按需获取的方法。</p>
+            <p>这一期我们关注SoCC‘19上的一篇关注容器I/O性能的文章。这篇文章旨在为Docker容器提供一个既能够提供高性能也保障高效缓存存储驱动：HP-Mapper</p>
+<a id="more"></a>
+
+<h2 id="文章来源"><a href="#文章来源" class="headerlink" title="文章来源"></a>文章来源</h2><p>HP-Mapper: A High Performance Storage Driver for Docker Containers (SoCC’19)</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Docker是一种使用了内核Namespace、Cgroup的轻量级容器技术。Docker将容器所需要的所有数据使用Image存储起来，并使用不同的存储驱动管理镜像。Docker支持的存储驱动分为两类：File-based驱动和Block-based驱动。</p>
+<p>File-based驱动：Overlay2和AUFS。具有较大的copy-on-write开销（先拷贝整个文件，再修改）但是缓存使用高效（不同容器可以共享底层只读文件的page cache）</p>
+<p>Block-based驱动：DeviceMapper、Btrfs和Zfs。具有较小的copy-on-write开销（只修改对应的块）但是缓存使用低效（不同容器有各自独立的文件系统和page cache）</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>需要一种既能够提供高效copy-on-write机制也能够提供高效缓存使用的存储驱动，同时还要能够消除冗余的I/O请求（File-based和block-based驱动同时存在）。</p>
+<h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><ol>
+<li><p>如何提供细粒度的copy-on-write机制？</p>
+</li>
+<li><p>如何拦截冗余的I/O请求？</p>
+</li>
+<li><p>如何管理重复的缓存数据？</p>
+</li>
+</ol>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p>文章的设计中有三个主要的构建：Address mapper、I/O interceptor和Cache manager</p>
+<div style="text-align: center;">
+
+<p><img src="architecture.png" alt="HP-Mapper架构图"></p>
+</div>
+
+<h3 id="The-address-mapper"><a href="#The-address-mapper" class="headerlink" title="The address mapper"></a>The address mapper</h3><ol>
+<li>如何设计一个two-level映射树同时避免大内存使用和查询开销？</li>
+</ol>
+<p>DeviceMapper只使用了一级的B树，因此它只支持固定长度的虚拟块号（VBN)。使用两级的B树可以保证HP-Mapper可以使用两种块大小，分别是512KB和4KB。关于第二级树的信息可以恰好保存在一个物理块中，减少内存使用和查询开销</p>
+<ol start="2">
+<li>如何设计一个选择性的块分配策略保证不同写请求的高存储效率和性能？</li>
+</ol>
+<p>文章提出了一个按需分配机制为需要新的虚拟块的I/O请求分配新的物理块。对于copy-on-write请求，根据请求为其分配正确大小的块；对于其他请求，为其分配大块。这样既能够提供细粒度的copy-on-write也能够减少触发块分配的次数，提高性能</p>
+<ol start="3">
+<li>如何在two-level映射策略下减少内存碎片？</li>
+</ol>
+<p>HP-Mapper将物理设备的存储空间简单地分为两部分，第一部分用来为大块分配，第二部分用来为小块分配</p>
+<h3 id="The-I-O-Interceptor"><a href="#The-I-O-Interceptor" class="headerlink" title="The I/O Interceptor"></a>The I/O Interceptor</h3><ol>
+<li>如何正确识别冗余I/O请求并且保证从缓存获取数据的正确率？</li>
+</ol>
+<p>使用一个哈希表来记录最近的读请求的物理块号（PBN），新的请求需要与哈希表中已经存在的数据进行对比。为了保证经常改变和移动的内存页的正确性，HP-Mapper还保存了文件系统和文件的元数据</p>
+<ol start="2">
+<li>如何在低内存开销下管理元数据保证高查询性能？</li>
+</ol>
+<p>为了提高元数据查询速度，HP-Mapper也将其保存在了一个哈希表中，使用BPN作为键来查询相关信息</p>
+<ol start="3">
+<li>如何设计工作流程来加速冗余I/O请求的截获？</li>
+</ol>
+<p>由于读写层的数据是不可共享的，因此文章在设计工作流程时，首先对目标数据是否可共享进行判断</p>
+<h3 id="The-cache-manager"><a href="#The-cache-manager" class="headerlink" title="The cache manager"></a>The cache manager</h3><ol>
+<li>如何在低开销下监控内存页特征？</li>
+</ol>
+<p>文章使用了一个守护线程周期性地遍历所有的内存页</p>
+<ol start="2">
+<li>如何设计一个低缓存冗余并且高缓存命中的替换策略？</li>
+</ol>
+<p>HP-Mapper将数量和热度同时考虑，当需要驱逐内存页时，HP-Mapper会首先将冷页驱逐，然后从末尾将最久未使用的内存页驱逐，直到剩下的页数符合预期数目</p>
+<ol start="3">
+<li>如何基于主机内存的使用自适应地调整替换策略？</li>
+</ol>
+<p>将内存使用率分为三个状态：低、正常和高，因此有两个阈值：Thresh_lowh和Thresh_high。如果内存使用处于低状态，则翻倍预期数目；如果处于正常状态，则不变；如果处于高状态，则减半预期数目</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="HP-Mapper的开销"><a href="#HP-Mapper的开销" class="headerlink" title="HP-Mapper的开销"></a>HP-Mapper的开销</h3><p>开销非常小</p>
+<h3 id="减少冗余I-O请求"><a href="#减少冗余I-O请求" class="headerlink" title="减少冗余I/O请求"></a>减少冗余I/O请求</h3><p>即减少了读写的数据，也加快了容器的启动时间（并行和串行）</p>
+<h3 id="提升I-O性能"><a href="#提升I-O性能" class="headerlink" title="提升I/O性能"></a>提升I/O性能</h3><p>在SSD和普通HDD条件下，均能够提升性能，其中在HDD环境下效果更明显</p>
+<h3 id="缓存效率"><a href="#缓存效率" class="headerlink" title="缓存效率"></a>缓存效率</h3><p>显著提高缓存效率，去除了冗余内存页</p>
+<h2 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h2><p>这篇文章总结了当前容器存储驱动在高性能和高效缓存之间没能兼顾两方面，提出了HP-Mapper。这篇文章的结构组织非常的公正，所有的章节都以问题为导向，非常的清晰，可以作为做系统的计算机论文的模板</p>
+<h2 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h2><p><a href="http://delivery.acm.org/10.1145/3370000/3362718/p325-Guo.pdf?ip=202.114.7.138&id=3362718&acc=OPEN&key=BF85BBA5741FDC6E%2ECC932049E1B2BA72%2E4D4702B0C3E38B35%2E6D218144511F3437&__acm__=1575602039_228b80b166ea2443ddcf10962f01ab2b" target="_blank" rel="noopener">查看原文</a></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/16/论文月读第三期/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/SoCC-19/">SoCC'19</a>, <a class="has-link-grey -link" href="/tags/论文月读/">论文月读</a>
                 </div>
             </div>
         </div>
         
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5cfcf6a14351e9001264fdc5&amp;product=inline-share-buttons" async="async"></script>
+
         
     </div>
 </div>
@@ -206,9 +270,45 @@
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/11/16/论文月读第六期/">
+                <span class="level-item">论文月读第六期</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/12/16/论文月读第七期/';
+        this.page.identifier = '2019/12/16/论文月读第七期/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'bianshengweis-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
 </div>
                 
 
@@ -311,6 +411,85 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#文章来源">
+        <span class="has-mr-6">1</span>
+        <span>文章来源</span>
+        </a></li><li>
+        <a class="is-flex" href="#简介">
+        <span class="has-mr-6">2</span>
+        <span>简介</span>
+        </a></li><li>
+        <a class="is-flex" href="#背景">
+        <span class="has-mr-6">3</span>
+        <span>背景</span>
+        </a></li><li>
+        <a class="is-flex" href="#问题">
+        <span class="has-mr-6">4</span>
+        <span>问题</span>
+        </a></li><li>
+        <a class="is-flex" href="#挑战">
+        <span class="has-mr-6">5</span>
+        <span>挑战</span>
+        </a></li><li>
+        <a class="is-flex" href="#解决方案">
+        <span class="has-mr-6">6</span>
+        <span>解决方案</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#总览">
+        <span class="has-mr-6">6.1</span>
+        <span>总览</span>
+        </a></li><li>
+        <a class="is-flex" href="#The-address-mapper">
+        <span class="has-mr-6">6.2</span>
+        <span>The address mapper</span>
+        </a></li><li>
+        <a class="is-flex" href="#The-I-O-Interceptor">
+        <span class="has-mr-6">6.3</span>
+        <span>The I/O Interceptor</span>
+        </a></li><li>
+        <a class="is-flex" href="#The-cache-manager">
+        <span class="has-mr-6">6.4</span>
+        <span>The cache manager</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#测试">
+        <span class="has-mr-6">7</span>
+        <span>测试</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#HP-Mapper的开销">
+        <span class="has-mr-6">7.1</span>
+        <span>HP-Mapper的开销</span>
+        </a></li><li>
+        <a class="is-flex" href="#减少冗余I-O请求">
+        <span class="has-mr-6">7.2</span>
+        <span>减少冗余I/O请求</span>
+        </a></li><li>
+        <a class="is-flex" href="#提升I-O性能">
+        <span class="has-mr-6">7.3</span>
+        <span>提升I/O性能</span>
+        </a></li><li>
+        <a class="is-flex" href="#缓存效率">
+        <span class="has-mr-6">7.4</span>
+        <span>缓存效率</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#我的总结">
+        <span class="has-mr-6">8</span>
+        <span>我的总结</span>
+        </a></li><li>
+        <a class="is-flex" href="#原文链接">
+        <span class="has-mr-6">9</span>
+        <span>原文链接</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -913,7 +1092,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="Bian Shengwei&#39;s Blog" height="28">
+                    <img src="/images/logo.png" alt="论文月读第七期" height="28">
                 
                 </a>
                 <p class="is-size-7">
