@@ -16,7 +16,7 @@
 <meta property="og:description" content="这一期我们关注SoCC‘19上的一篇关注容器I/O性能的文章。这篇文章旨在为Docker容器提供一个既能够提供高性能也保障高效缓存存储驱动：HP-Mapper">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/PaperReading.png">
-<meta property="og:updated_time" content="2019-12-09T09:33:10.768Z">
+<meta property="og:updated_time" content="2019-12-24T08:04:44.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文月读第七期">
 <meta name="twitter:description" content="这一期我们关注SoCC‘19上的一篇关注容器I/O性能的文章。这篇文章旨在为Docker容器提供一个既能够提供高性能也保障高效缓存存储驱动：HP-Mapper">
@@ -167,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1458 个字)
+                    10 分钟 读完 (大约 1456 个字)
                 </span>
                 
                 
@@ -184,7 +184,7 @@
 <a id="more"></a>
 
 <h2 id="文章来源"><a href="#文章来源" class="headerlink" title="文章来源"></a>文章来源</h2><p>HP-Mapper: A High Performance Storage Driver for Docker Containers (SoCC’19)</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Docker是一种使用了内核Namespace、Cgroup的轻量级容器技术。Docker将容器所需要的所有数据使用Image存储起来，并使用不同的存储驱动管理镜像。Docker支持的存储驱动分为两类：File-based驱动和Block-based驱动。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Docker是一种使用了内核Namespace、Cgroup的轻量级容器技术。Docker将容器所需要的所有数据使用Image存储起来，并使用不同的存储驱动管理镜像。Docker支持的存储驱动分为两类：File-based驱动和Block-based驱动。</p>
 <p>File-based驱动：Overlay2和AUFS。具有较大的copy-on-write开销（先拷贝整个文件，再修改）但是缓存使用高效（不同容器可以共享底层只读文件的page cache）</p>
 <p>Block-based驱动：DeviceMapper、Btrfs和Zfs。具有较小的copy-on-write开销（只修改对应的块）但是缓存使用低效（不同容器有各自独立的文件系统和page cache）</p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>需要一种既能够提供高效copy-on-write机制也能够提供高效缓存使用的存储驱动，同时还要能够消除冗余的I/O请求（File-based和block-based驱动同时存在）。</p>
@@ -273,6 +273,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/12/24/原创系列第一期/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">原创系列第一期：bash终端翻墙方法</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2019/11/16/论文月读第六期/">
@@ -354,7 +361,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        9
                     </p>
                 </div>
             </div>
@@ -364,7 +371,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        2
+                        3
                     </p>
                 </div>
             </div>
@@ -374,7 +381,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        9
                     </p>
                 </div>
             </div>
@@ -422,68 +429,64 @@
         <span class="has-mr-6">1</span>
         <span>文章来源</span>
         </a></li><li>
-        <a class="is-flex" href="#简介">
-        <span class="has-mr-6">2</span>
-        <span>简介</span>
-        </a></li><li>
         <a class="is-flex" href="#背景">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">2</span>
         <span>背景</span>
         </a></li><li>
         <a class="is-flex" href="#问题">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">3</span>
         <span>问题</span>
         </a></li><li>
         <a class="is-flex" href="#挑战">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">4</span>
         <span>挑战</span>
         </a></li><li>
         <a class="is-flex" href="#解决方案">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">5</span>
         <span>解决方案</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#总览">
-        <span class="has-mr-6">6.1</span>
+        <span class="has-mr-6">5.1</span>
         <span>总览</span>
         </a></li><li>
         <a class="is-flex" href="#The-address-mapper">
-        <span class="has-mr-6">6.2</span>
+        <span class="has-mr-6">5.2</span>
         <span>The address mapper</span>
         </a></li><li>
         <a class="is-flex" href="#The-I-O-Interceptor">
-        <span class="has-mr-6">6.3</span>
+        <span class="has-mr-6">5.3</span>
         <span>The I/O Interceptor</span>
         </a></li><li>
         <a class="is-flex" href="#The-cache-manager">
-        <span class="has-mr-6">6.4</span>
+        <span class="has-mr-6">5.4</span>
         <span>The cache manager</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#测试">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">6</span>
         <span>测试</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#HP-Mapper的开销">
-        <span class="has-mr-6">7.1</span>
+        <span class="has-mr-6">6.1</span>
         <span>HP-Mapper的开销</span>
         </a></li><li>
         <a class="is-flex" href="#减少冗余I-O请求">
-        <span class="has-mr-6">7.2</span>
+        <span class="has-mr-6">6.2</span>
         <span>减少冗余I/O请求</span>
         </a></li><li>
         <a class="is-flex" href="#提升I-O性能">
-        <span class="has-mr-6">7.3</span>
+        <span class="has-mr-6">6.3</span>
         <span>提升I/O性能</span>
         </a></li><li>
         <a class="is-flex" href="#缓存效率">
-        <span class="has-mr-6">7.4</span>
+        <span class="has-mr-6">6.4</span>
         <span>缓存效率</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#我的总结">
-        <span class="has-mr-6">8</span>
+        <span class="has-mr-6">7</span>
         <span>我的总结</span>
         </a></li><li>
         <a class="is-flex" href="#原文链接">
-        <span class="has-mr-6">9</span>
+        <span class="has-mr-6">8</span>
         <span>原文链接</span>
         </a></li></ul>
         </div>
@@ -504,6 +507,14 @@
             </h3>
             <ul class="menu-list">
             <li>
+        <a class="level is-marginless" href="/categories/原创系列/">
+            <span class="level-start">
+                <span class="level-item">原创系列</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/文章翻译/">
             <span class="level-start">
                 <span class="level-item">文章翻译</span>
@@ -531,7 +542,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ASPLOS-19/" style="font-size: 15px;">ASPLOS'19</a> <a href="/tags/FAST-16/" style="font-size: 10px;">FAST'16</a> <a href="/tags/HotCloud-19/" style="font-size: 10px;">HotCloud'19</a> <a href="/tags/IPDPS-17/" style="font-size: 10px;">IPDPS'17</a> <a href="/tags/MSST-19/" style="font-size: 10px;">MSST'19</a> <a href="/tags/SoCC-19/" style="font-size: 10px;">SoCC'19</a> <a href="/tags/文章翻译/" style="font-size: 10px;">文章翻译</a> <a href="/tags/论文月读/" style="font-size: 20px;">论文月读</a>
+        <a href="/tags/ASPLOS-19/" style="font-size: 15px;">ASPLOS'19</a> <a href="/tags/FAST-16/" style="font-size: 10px;">FAST'16</a> <a href="/tags/HotCloud-19/" style="font-size: 10px;">HotCloud'19</a> <a href="/tags/IPDPS-17/" style="font-size: 10px;">IPDPS'17</a> <a href="/tags/MSST-19/" style="font-size: 10px;">MSST'19</a> <a href="/tags/SoCC-19/" style="font-size: 10px;">SoCC'19</a> <a href="/tags/原创系列/" style="font-size: 10px;">原创系列</a> <a href="/tags/文章翻译/" style="font-size: 10px;">文章翻译</a> <a href="/tags/论文月读/" style="font-size: 20px;">论文月读</a>
     </div>
 </div>
 
@@ -545,6 +556,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/12/24/原创系列第一期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/Original.png" alt="原创系列第一期：bash终端翻墙方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T08:05:47.000Z">2019-12-24</time></div>
+                    <a href="/2019/12/24/原创系列第一期/" class="has-link-black-ter is-size-6">原创系列第一期：bash终端翻墙方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/原创系列/">原创系列</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -622,25 +652,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/16/论文月读第三期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第三期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-16T12:00:00.000Z">2019-08-16</time></div>
-                    <a href="/2019/08/16/论文月读第三期/" class="has-link-black-ter is-size-6">论文月读第三期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -659,7 +670,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -781,6 +792,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SoCC-19/">
                         <span class="tag">SoCC&#39;19</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原创系列/">
+                        <span class="tag">原创系列</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -824,6 +842,25 @@
         
         <article class="media">
             
+            <a href="/2019/12/24/原创系列第一期/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/Original.png" alt="原创系列第一期：bash终端翻墙方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T08:05:47.000Z">2019-12-24</time></div>
+                    <a href="/2019/12/24/原创系列第一期/" class="has-link-black-ter is-size-6">原创系列第一期：bash终端翻墙方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/原创系列/">原创系列</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/16/论文月读第七期/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第七期">
@@ -898,25 +935,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/16/论文月读第三期/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/PaperReading.png" alt="论文月读第三期">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-16T12:00:00.000Z">2019-08-16</time></div>
-                    <a href="/2019/08/16/论文月读第三期/" class="has-link-black-ter is-size-6">论文月读第三期</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/论文月读/">论文月读</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -935,7 +953,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1057,6 +1075,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SoCC-19/">
                         <span class="tag">SoCC&#39;19</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原创系列/">
+                        <span class="tag">原创系列</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
